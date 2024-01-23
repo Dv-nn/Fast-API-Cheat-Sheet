@@ -1,23 +1,22 @@
 # Fast API Cheat Sheet  
 FastAPI — это современный, быстрый (высокопроизводительный) веб-фреймворк для создания API, в основе которого лежит стандартная аннотация типов Python.
 
-> pip install fastapi[all]  
-> pip install pony
-> pip install bit  
-> pip install pyTelegramBotAPI  
+> pip install fastapi[all]   --установить FastAPI
+> pip install "uvicorn[standard]"   --установить uvicorn для работы в качестве сервера    
 
-
-> import fastapi    
+Самый простой FastAPI файл    
+> from fastapi import FastAPI  
 >
-> api = fastapi.FastAPI()  
+> app = FastAPI()
 >
-> @api.get('/hello')  
-> def api_hello():  
->    return {"hello":'from api!'}  
+> @app.get("/")
+> async def root():
+>    return {"message": "Hello World"}
 
-Запускается сервер с API через терминал    
-> uvicorn main:api --reload    
+> uvicorn main:app --reload     --запустить сервер
 
+
+ 
  
 ____  
 [Документация](https://fastapi.netlify.app/ru/)
