@@ -26,6 +26,13 @@ ____
 > @api.get('/userid/{id:int}')  # мы можем задавать тип данных прямо в пути через двоеточие  
 > def get_id(id):                  
 >    return {"user":id}     
- 
+
+
+Чтобы начать принимать и обрабатывать различные параметры, в функцию обработки запроса FastAPI мы должны добавить аргументы  
+> @api.get("/users/")  
+> def get_users(skip: int = 0, limit: int = 10):  
+>    return fake_database['users'][skip: skip + limit]
+
+
 ____  
 [Документация](https://fastapi.netlify.app/ru/)
