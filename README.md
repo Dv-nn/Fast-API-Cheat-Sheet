@@ -33,6 +33,14 @@ ____
 > def get_users(skip: int = 0, limit: int = 10):  
 >    return fake_database['users'][skip: skip + limit]
 
+*POST, PUT, DELETE и другие запросы*    
+> @api.get('/')       # метод для обработки get запросов  
+> @api.post('/')      # метод для обработки post запросов  
+> @api.put('/')       # метод для обработки put запросов  
+> @api.delete('/')    # метод для обработки delete запросов  
+> def index(request: Request):  # тут request - будет объектом в котором хранится вся информация о запросе  
+>    return {"Request" : [request.method,    # тут наш API вернет клиенту метод, с которым этот запрос был совершен  
+>                         request.headers]}  # а тут в ответ вернутся все хедеры клиентского запроса
 
 ____  
 [Документация](https://fastapi.netlify.app/ru/)
